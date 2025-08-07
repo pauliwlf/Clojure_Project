@@ -1,5 +1,9 @@
 (ns mini.playground)
 
+((fn [& x] (apply + x)) 2 3 4 5 6)
+(defn dom [] '(1 2 3 4 5))
+(conj (dom) (dom))
+
 ; 2-adic function
 ; n-adic function
 ; variadic function
@@ -19,6 +23,8 @@
   (fn [arg1]
     (fn [arg2]
       (func arg1 arg2))))
+
+;closure
 
 ; curry variadic
 (defn curry-variadic [func]
