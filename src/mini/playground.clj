@@ -1,8 +1,46 @@
 (ns mini.playground)
 
-((fn [& x] (apply + x)) 2 3 4 5 6)
+
+
+; Immutability -> Objekte können nicht verändert werden
+(def testVariable 5)
+(str testVariable)
+(+ testVariable 4)
+(str testVariable)
+
+; Commutability -> Reihenfolge ist bei manchen Funktionen egal
+
+(= (+ 1 2 3 4 5) (+ 2 4 3 1 5))
+
+; Homoiconicity -> Program Code is based on Data structures of program language
+; e.g. Function invocation = list
+
+
+
+
+(def testVariable (+ testVariable 4))
+(str testVariable)
+
+
+let a = 1
+a += 2
+print a
+
+
+
+
+
+
+
+
+
+(def test ((fn [& x] (apply + x)) 2 3 4 5 6))
+test
+
 (defn dom [] '(1 2 3 4 5))
-(conj (dom) (dom))
+(defn olli [] '(1 2 3 4 5 6 7))
+(apply + (concat (olli) (dom)))
+(+ '(1 2 3 4 5) 1 2 3 4 5)
 
 ; 2-adic function
 ; n-adic function
@@ -63,4 +101,16 @@
        acc
        (recur func (rest seq) (func acc (first seq)))))
    func (rest seq) (first seq)))
-(custom-reduce + '())
+
+
+
+
+(custom-reduce + '(2 3 4 5))
+
+(custom-reduce - '(1 2 3))
+
+(custom-reduce str '("Hallo " "Welt" "!"))
+
+(custom-reduce max '(5 1 23 15))
+
+(custom-reduce inc '(1 2))
